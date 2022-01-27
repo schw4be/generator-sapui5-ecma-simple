@@ -32,7 +32,8 @@
     "lint:eslint": "eslint webapp/**/*.js",
     "lint:prettier": "prettier --check webapp/**/*.{js,xml}",
     "lint:eslint-fix": "eslint webapp/**/*.js --fix",
-    "lint:prettier-fix": "prettier --write webapp/**/*.{js,xml}"
+    "lint:prettier-fix": "prettier --write webapp/**/*.{js,xml}",
+    "inst": "npm i"
   },
   "devDependencies": {
     "@ui5/cli": "^2.14.1",
