@@ -1,0 +1,8 @@
+{
+    "ignore": [
+        "dist/*"
+    ],    
+    "presets": [
+        ["transform-ui5", {}]
+    ]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "SAPUI5 ECMA Simple Template",
+  "repository": {
+    "type": "git",
+    "url": "git@ssh.dev.azure.com:v3/ABS-TEAM/abstpaips/abstpaips-onpremise-ui-ui5-tracker"
+  },
+  "author": "Markus Klein",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "webapp/index.html",
+  "keywords": [
+    "ui5",
+    "sapui5"
+  ],
+  "scripts": {
+    "dev": "npm-run-all --parallel build:transpile dev:ui5",
+    "dev:ui5": "ui5 serve --config=ui5.yaml  --open index.html",
+    "flp": "npm-run-all --parallel build:transpile flp:ui5",
+    "flp:ui5": "fiori run --config=ui5.yaml --open 'test/flpSandbox.html#template-tile'",
+    "watch": "npm-run-all --parallel transpile:watch dev:ui5",
+    "watch:flp": "npm-run-all --parallel transpile:watch flp:ui5",
+    "start": "ui5 serve --config=ui5-dist.yaml",
+    "start:flp": "fiori run --config=ui5-dist.yaml --open 'test/flpSandbox.html#template-tile'",
+    "build": "npm-run-all build:*",
+    "build:transpile": "npm-run-all transpile",
+    "build:ui5": "ui5 build --clean-dest --dest dist --config=ui5.yaml --include-task=generateManifestBundle generateCachebusterInfo",
+    "transpile": "babel src --out-dir webapp --source-maps true --extensions \".js\" --copy-files",
+    "transpile:watch": "babel src --out-dir webapp --source-maps true --extensions \".js\" --copy-files --watch",
+    "lint": "npm-run-all lint:*",
+    "lint:eslint": "eslint webapp/**/*.js",
+    "lint:prettier": "prettier --check webapp/**/*.{js,xml}",
+    "lint:eslint-fix": "eslint webapp/**/*.js --fix",
+    "lint:prettier-fix": "prettier --write webapp/**/*.{js,xml}"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^2.14.1",
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+    "@sap/ux-ui5-tooling": "1",
+    "@prettier/plugin-xml": "^1.1.0",
+    "@babel/core": "^7.16.7",
+    "@babel/cli": "^7.16.8",
+    "@babel/preset-env": "^7.16.8",
+    "@babel/plugin-transform-computed-properties": "^7.16.7",
+    "@babel/plugin-transform-destructuring": "^7.16.7",
+    "@babel/plugin-transform-for-of": "^7.16.7",
+    "@babel/eslint-parser": "^7.16.5",
+    "babel-preset-transform-ui5": "^7.0.5",
+    "babel-plugin-transform-async-to-promises": "^0.8.18",
+    "npm-run-all": "^4.1.5",
+    "eslint": "^8.6.0",
+    "prettier": "^2.5.1",
+    "ui5-middleware-livereload": "^0.5.8",
+    "ui5-middleware-route-proxy": "^1.0.10"
+  },
+  "ui5": {
+    "dependencies": [
+      "@sap/ux-ui5-tooling",
+      "ui5-middleware-livereload",
+      "ui5-middleware-route-proxy"
+    ]
+  }
+}

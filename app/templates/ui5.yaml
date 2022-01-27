@@ -1,0 +1,37 @@
+specVersion: "2.3"
+metadata:
+  name: template
+type: application
+resources:
+  configuration:
+    paths:
+      webapp: webapp
+framework:
+  name: SAPUI5
+  version: 1.77.2
+  libraries:
+    - name: sap.ui.core
+    - name: sap.m
+    - name: sap.f
+    - name: sap.ui.layout
+    - name: themelib_sap_fiori_3
+server:
+  customMiddleware:
+    - name: ui5-middleware-livereload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+    - name: ui5-middleware-route-proxy
+      afterMiddleware: compression
+      configuration:
+        debug: false
+        /sap/opu/odata/abst/:
+          target: SERVER
+          auth:
+            user: USERNAME
+            pass: PASSWORD
+builder:
+  resources:
+    excludes:
+      - "/test/**"                
