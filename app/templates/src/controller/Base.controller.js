@@ -3,7 +3,7 @@ import History from "sap/ui/core/routing/History";
 import UIComponent from "sap/ui/core/UIComponent";
 
 /**
- * @namespace my.template.controller
+ * @namespace <%= namespace %>.<%= name %>.controller
  * @controller
  */
 export default class Base extends Controller {

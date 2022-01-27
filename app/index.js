@@ -15,6 +15,24 @@ module.exports = class extends Generator {
           },
           {
             type: "input",
+            name: "namespace",
+            message: "Your project namespace",
+            default: "my.app"
+          },       
+          {
+            type: "input",
+            name: "semObject",
+            message: "Semantic Object",
+            default: "app"
+          },
+          {
+            type: "input",
+            name: "semAction",
+            message: "Semantic Action",
+            default: "display"
+          },                          
+          {
+            type: "input",
             name: "description",
             message: "Project Description",
             default: ""
@@ -32,12 +50,6 @@ module.exports = class extends Generator {
             default: "1.0.0"
           },
           {
-            type: "confirm",
-            name: "authentication",
-            message: "Would you like authentication?",
-            default: true
-          },
-          {
             type: "input",
             name: "version",
             message: "Your Version",
@@ -49,12 +61,11 @@ module.exports = class extends Generator {
             message: `Post Processing: Build or Install`,
             choices: [
               { name: 'Installation', value: 'inst' },
-              { name: 'MBT Build', value: 'build' },
+              { name: 'Build', value: 'build' },
               { name: 'None', value: 'none' },
             ],
             default: 'none'
-          }
-                    
+          }      
         ]);
       }
 
@@ -70,11 +81,13 @@ module.exports = class extends Generator {
 
       const files = [
         //'.gitignore',
-        'srv/.eslintignore',
-        'srv/.eslintrc.yml',
-        'srv/.prettierignore',
-        'srv/.prettierrc.yaml',
-        '.vscode/',
+        '.eslintignore',
+        '.eslintrc.json',
+        '.prettierignore',
+        '.prettierrc',
+        '.babelrc.json',
+        '.editorconfig',
+        '.env'
       ];         
 
       files.forEach(f => {

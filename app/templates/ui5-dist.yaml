@@ -1,6 +1,6 @@
 specVersion: "2.3"
 metadata:
-  name: template
+  name: <%= name %>
 type: application
 resources:
   configuration:
@@ -21,7 +21,7 @@ server:
       afterMiddleware: compression
       configuration:
         debug: false
-        /sap/opu/odata/abst/:
+        /sap/opu/odata/sap/:
           target: SERVER
           auth:
             user: USERNAME

@@ -1,12 +1,12 @@
 {
-  "name": "template",
+  "name": "<%= name %>",
   "version": "1.0.0",
-  "description": "SAPUI5 ECMA Simple Template",
+  "description": "<%= description %>",
   "repository": {
     "type": "git",
-    "url": "git@ssh.dev.azure.com:v3/ABS-TEAM/abstpaips/abstpaips-onpremise-ui-ui5-tracker"
+    "url": "https://github.com/schw4be/generator-sapui5-ecma-simple.git"
   },
-  "author": "Markus Klein",
+  "author": "<%= author %>",
   "license": "UNLICENSED",
   "private": true,
   "main": "webapp/index.html",
@@ -18,11 +18,11 @@
     "dev": "npm-run-all --parallel build:transpile dev:ui5",
     "dev:ui5": "ui5 serve --config=ui5.yaml  --open index.html",
     "flp": "npm-run-all --parallel build:transpile flp:ui5",
-    "flp:ui5": "fiori run --config=ui5.yaml --open 'test/flpSandbox.html#template-tile'",
+    "flp:ui5": "fiori run --config=ui5.yaml --open 'test/flpSandbox.html#<%= semObject %>-<%= semAction %>'",
     "watch": "npm-run-all --parallel transpile:watch dev:ui5",
     "watch:flp": "npm-run-all --parallel transpile:watch flp:ui5",
     "start": "ui5 serve --config=ui5-dist.yaml",
-    "start:flp": "fiori run --config=ui5-dist.yaml --open 'test/flpSandbox.html#template-tile'",
+    "start:flp": "fiori run --config=ui5-dist.yaml --open 'test/flpSandbox.html#<%= semObject %>-<%= semAction %>'",
     "build": "npm-run-all build:*",
     "build:transpile": "npm-run-all transpile",
     "build:ui5": "ui5 build --clean-dest --dest dist --config=ui5.yaml --include-task=generateManifestBundle generateCachebusterInfo",

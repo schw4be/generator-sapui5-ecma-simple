@@ -1,7 +1,7 @@
 import Base from "./Base.controller";
 
 /**
- * @namespace my.template.controller
+ * @namespace <%= namespace %>.<%= name %>.controller
  * @controller
  */
 export default class Main extends Base {

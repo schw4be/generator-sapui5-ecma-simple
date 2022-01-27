@@ -1,8 +1,8 @@
-<mvc:View controllerName="my.template.controller.Main"
+<mvc:View controllerName="<%= namespace %>.<%= name %>.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:l="sap.ui.layout"
     xmlns="sap.m">
-    <Page id="page" title="SAPUI5 Scaffolding Template">
+    <Page id="page" title="<%= name %>">
         <content>
                 <Button text="Press me!" press="sayHello" />
         </content>

@@ -1,8 +1,8 @@
 import UIComponent from "sap/ui/core/UIComponent";
-import models from "my/template/model/models";
+import models from "<%= namespace %>/<%= name %>/model/models";
 
 /**
- * @namespace my.template
+ * @namespace <%= namespace %>.<%= name %>
  */
 export default class Component extends UIComponent {
     static metadata = {
