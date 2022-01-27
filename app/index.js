@@ -87,7 +87,6 @@ module.exports = class extends Generator {
         '.prettierrc',
         '.babelrc.json',
         '.editorconfig',
-        '.env'
       ];         
 
       files.forEach(f => {
